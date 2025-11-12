@@ -1,22 +1,22 @@
 [project]
 name = "tokamax"
 authors = [
-  {name = "Ani Udipi", email = "udipi@google.com"},
-  {name = "Chris Jones", email = "cjfj@google.com"},
-  {name = "Christos Perivolaropoulos", email = "cperivol@google.com"},
-  {name = "Giorgio Arena", email = "giorgioa@google.com"},
-  {name = "Gleb Pobudzey", email = "pobudzey@google.com"},
-  {name = "Robert Dyro", email = "rdyro@google.com"},
-  {name = "Sebastian Bodenstein", email = "sbodenstein@google.com"},
-  {name = "Selim Seferbekov", email = "selimsef@google.com"},
-  {name = "Stanley Tzeng", email = "stzeng@google.com"},
-  {name = "Niyati Chaudhary", email = "niyatic@google.com"},
+    { name = "Ani Udipi", email = "udipi@google.com" },
+    { name = "Chris Jones", email = "cjfj@google.com" },
+    { name = "Christos Perivolaropoulos", email = "cperivol@google.com" },
+    { name = "Giorgio Arena", email = "giorgioa@google.com" },
+    { name = "Gleb Pobudzey", email = "pobudzey@google.com" },
+    { name = "Robert Dyro", email = "rdyro@google.com" },
+    { name = "Sebastian Bodenstein", email = "sbodenstein@google.com" },
+    { name = "Selim Seferbekov", email = "selimsef@google.com" },
+    { name = "Stanley Tzeng", email = "stzeng@google.com" },
+    { name = "Niyati Chaudhary", email = "niyatic@google.com" },
 ]
 
 description = "A Pallas Custom Kernel Library."
 readme = "README.md"
 version = "0.0.4"
-license = {file = "LICENSE"}
+license = { file = "LICENSE" }
 requires-python = ">=3.11"
 dependencies = [
     "absl-py>=2.3.0",
@@ -38,21 +38,26 @@ test = [
     "pytest-xdist",
     "pytest",
     "flax",
+    "immutabledict>=4.2.2",
 ]
 
-bench = [
-    "google-benchmark>=1.9.0",
-]
+bench = ["google-benchmark>=1.9.0"]
 
-cuda = [
-    "jax[cuda12]>=0.8.0",
-    "nvidia-cudnn-cu12>=9.0.0",
-]
+cuda = ["jax[cuda12]>=0.8.0", "nvidia-cudnn-cu12>=9.0.0"]
 
-tpu = [
-    "jax[tpu]>=0.8.0",
-    "hypothesis",
-]
+tpu = ["jax[tpu]>=0.8.0", "hypothesis"]
 
 [tool.pytest.ini_options]
-markers = ["long: tests that will take a long time to run and are used in weekly runs"]
+markers = [
+    "long: tests that will take a long time to run and are used in weekly runs",
+]
+
+[tool.ruff]
+# Exclude a variety of commonly ignored directories.
+exclude = [".git", "build", "__pycache__"]
+line-length = 80
+indent-width = 2
+
+[tool.ruff.format]
+indent-style = "space"
+quote-style = "single"
